@@ -280,7 +280,7 @@ final class FeedUIIntegrationTests: XCTestCase {
 		wait(for: [exp], timeout: 1.0)
 	}
 
-	func test_errorView_isNotVisibleOnFeedLoadSuccessfully() {
+	func test_errorMessage_isNotVisibleOnFeedLoadSuccessfully() {
 		let (sut, loader) = makeSUT()
 		sut.loadViewIfNeeded()
 		loader.completeFeedLoading(with: [makeImage()])
