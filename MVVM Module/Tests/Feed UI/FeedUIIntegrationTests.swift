@@ -280,6 +280,13 @@ final class FeedUIIntegrationTests: XCTestCase {
 		wait(for: [exp], timeout: 1.0)
 	}
 
+	func test_errorView_isNotVisibleAfterViewLoaded() {
+		let (sut, _) = makeSUT()
+		sut.loadViewIfNeeded()
+
+		XCTAssertFalse(sut.isShowingErrorMessage, "Expected error view is not visible until error happens")
+	}
+
 	// MARK: - Helpers
 
 	private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
