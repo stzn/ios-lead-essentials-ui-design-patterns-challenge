@@ -57,4 +57,8 @@ extension FeedViewController {
 	private var feedImagesSection: Int {
 		return 0
 	}
+
+	var isShowingErrorMessage: Bool {
+		return errorView?.isHidden == false
+	}
 }
