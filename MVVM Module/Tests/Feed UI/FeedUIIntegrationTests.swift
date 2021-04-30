@@ -285,7 +285,7 @@ final class FeedUIIntegrationTests: XCTestCase {
 		sut.loadViewIfNeeded()
 		loader.completeFeedLoading(with: [makeImage()])
 
-		XCTAssertFalse(sut.isShowingErrorMessage, "Expected error view is not visible until error happens")
+		XCTAssertEqual(sut.errorMessage, nil)
 	}
 
 	func test_errorMessage_isVisibleOnFeedLoadFailure() {
@@ -293,7 +293,7 @@ final class FeedUIIntegrationTests: XCTestCase {
 		sut.loadViewIfNeeded()
 		loader.completeFeedLoadingWithError(at: 0)
 
-		XCTAssertTrue(sut.isShowingErrorMessage, "Expected error view is visible when error happens")
+		XCTAssertEqual(sut.errorMessage, localized("FEED_VIEW_CONNECTION_ERROR"))
 	}
 
 	// MARK: - Helpers
